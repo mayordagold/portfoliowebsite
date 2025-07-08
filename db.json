@@ -1,0 +1,96 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Project One",
+      "description": "A powerful web application built with React and Node.js",
+      "url": "#"
+    },
+    {
+      "id": 2,
+      "name": "Project Two",
+      "description": "Elegant portfolio site showcasing sleek UI design",
+      "url": "#"
+    },
+    {
+      "id": 3,
+      "name": "Project Three",
+      "description": "Dynamic analytics dashboard created with Python and Flask",
+      "url": "#"
+    }
+  ],
+  "requests": [
+    {
+      "id": "cd77",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "4748",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "7c50",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "a87a",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "5aba",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "06a8",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "8981",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "6f43",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "c97c",
+      "name": "Adeniyi Oseyemi",
+      "email": "oginniolumayowa@yahoo.com",
+      "message": "Hello, i have a job for you"
+    },
+    {
+      "id": "706d",
+      "name": "Adeniyi Oseyemi",
+      "email": "aiartistry56@gmail.com",
+      "message": "Hello, congratulation on your new achievement"
+    },
+    {
+      "id": "e147",
+      "name": "Adeniyi",
+      "email": "oginniolumayowa@outlook.com",
+      "message": "Confirmation"
+    },
+    {
+      "id": "cfa3",
+      "name": "Adeniyi",
+      "email": "oginniolumayowa@outlook.com",
+      "message": "Confirmation"
+    }
+  ]
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olumayowa | Developer Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2d2e32;
+      --accent: #00bfae;
+      --bg: #f7f7f7;
+      --text: #222;
+      --card: #fff;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+    }
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      display: flex; gap: 2rem;
+      align-items: center;
+      transition: max-height 0.3s ease;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    .nav-links a.btn {
+      background: var(--accent);
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,191,174,0.08);
+    }
+    .nav-links a:hover, .nav-links a.btn:hover {
+      color: var(--accent);
+      background: #e0f7f5;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      cursor: pointer;
+      margin-left: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .about { flex-direction: column; text-align: center; }
+      .about-content { min-width: unset; }
+    }
+    @media (max-width: 700px) {
+      header {
+        flex-wrap: wrap;
+        padding: 1rem 1.2rem;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--card);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,191,174,0.13);
+        border-radius: 0 0 12px 12px;
+        transition: max-height 0.3s ease;
+      }
+      .nav-links.open {
+        max-height: 400px;
+        padding-bottom: 1rem;
+      }
+      .nav-links a {
+        width: 100%;
+        padding: 1rem 2rem;
+        border-radius: 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+    }
+    .hero {
+      background: linear-gradient(120deg, #e0f7f5 0%, #fff 100%);
+      padding: 5rem 2rem 3rem 2rem;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #444;
+    }
+    .skills {
+      display: flex; flex-wrap: wrap; gap: 0.7rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .skill-tag {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,191,174,0.08);
+    }
+    .cta {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+    .cta:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      background: #fff;
+      margin: 3rem 0;
+      padding: 3rem 2rem;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      box-shadow: 0 2px 16px rgba(0,191,174,0.12);
+    }
+    .about-content {
+      flex: 1;
+      min-width: 250px;
+    }
+    .about-content h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .about-content p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+    .projects {
+      background: #f2f8f7;
+      padding: 3rem 2rem;
+    }
+    .projects h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2.5rem;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .project-card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(0,191,174,0.13);
+    }
+    .project-card h3 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+    .project-card p {
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+    .project-card .cta {
+      margin-top: auto;
+      font-size: 1rem;
+      padding: 0.5rem 1.2rem;
+    }
+    .contact-section {
+      background: #fff;
+      padding: 3rem 2rem 2rem 2rem;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      max-width: 700px;
+      margin: 3rem auto 2rem auto;
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 0.8rem 1rem;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: none;
+    }
+    .contact-form button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover {
+      background: var(--primary);
+    }
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      background: #e0f7f5;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+      font-size: 1rem;
+    }
+    .social-links a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem 0 1rem 0;
+      color: #888;
+      font-size: 1rem;
+      background: transparent;
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1rem 2rem 1rem; }
+      .about, .projects, .contact-section { padding: 2rem 1rem; }
+      .project-card { padding: 1.2rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Olumayowa</div>
+    <button class="nav-toggle" aria-label="Open navigation" aria-controls="nav-menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="nav-links" id="nav-menu">
+      <a href="assets/resume.pdf" download class="btn" target="_blank" rel="noopener">📄 Resume</a>
+      <a href="#about" target="_blank" rel="noopener">About</a>
+      <a href="#work" target="_blank" rel="noopener">Work</a>
+      <a href="#contact" target="_blank" rel="noopener">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Turning Ideas Into Digital Reality</h1>
+      <p>Full Stack Developer crafting sleek web experiences.</p>
+      <div class="skills">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">Bootstrap 5</span>
+        <span class="skill-tag">AJAX</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Flask</span>
+      </div>
+      <a href="#work" class="cta">View My Work</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <img src="image/pics.png" alt="Olumayowa's Profile Picture" class="profile-image">
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>I am a Full Stack Developer passionate about designing and building scalable, efficient, and high-performing web applications. With expertise in HTML, Bootstrap 5, AJAX, JavaScript, React, and Python, I craft intuitive, responsive, and dynamic digital solutions that enhance user experience and streamline business operations. By leveraging modern frameworks and seamless front-to-back-end integration, I ensure optimized performance, clean UI design, and real-time interactivity, making every project impactful and future-ready.</p>
+    </div>
+  </section>
+
+  <section class="projects" id="work">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>SuperMart-Inventory</h3>
+        <div style="font-size:1.05rem;color:#00bfae;font-weight:600;margin-bottom:0.5rem;">Smart Inventory Management for Modern Supermarkets</div>
+        <p>Inventory management system for supermarkets, featuring real-time stock tracking, sales analytics, and intuitive user interface. Built with modern web technologies for efficiency and scalability.</p>
+        <a href="https://mayordagold.pythonanywhere.com/" class="cta" target="_blank" rel="noopener">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2>Let's Work Together</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="social-links">
+      <a href="mailto:oginniolumayowa85@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://github.com/mayordagold" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/olumayowa-oginni-83985270" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://x.com/@MayowaOgin61753" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a>
+    </div>
+    <div class="requests-list"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Olumayowa. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init({
+        publicKey: "9GJlCGlooO0X1oYWV",
+      });
+    })();
+    // Responsive Navbar Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      navToggle.addEventListener('click', function() {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !expanded);
+        navLinks.classList.toggle('open');
+      });
+      // Smooth scroll for nav links
+      document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', false);
+          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
