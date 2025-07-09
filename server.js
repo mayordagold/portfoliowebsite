@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname));
+app.use(express.static('public'));
 
 // Update these with your email service credentials
 const transporter = nodemailer.createTransport({
